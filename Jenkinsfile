@@ -12,7 +12,7 @@ node {
 	
 	stage('Build'){
 	    script{
-	    sh 'docker build -t registry.gcp0001.us-east4.astronomer.io/elementary-flyby-8509/airflow:ci-5'
+	    sh 'docker build -t registry.gcp0001.us-east4.astronomer.io/elementary-flyby-8509/airflow:ci-5 . '
 	  }
     }
 	
