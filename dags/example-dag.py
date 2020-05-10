@@ -14,6 +14,7 @@ def my_custom_function(ts,**kwargs):
     print('Here is the full DAG Run context. It is available because provide_context=True')
     print(kwargs)
     print('done')
+    print('done1')
 
 # Default settings applied to all tasks
 default_args = {
