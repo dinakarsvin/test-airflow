@@ -1,0 +1,19 @@
+pipeline:
+  build:
+    commands:
+      - docker build -t registry.gcp0001.us-east4.astronomer.io/scientific-isotope-3464/airflow:ci-2 .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    when:
+      event: push
+      branch: [ master, release-* ]
+
+  push:
+    commands:
+      - docker login registry.gcp0001.us-east4.astronomer.io -u _ -p 3f384726173be2ef05ecb11e71f8988b
+      - docker push registry.gcp0001.us-east4.astronomer.io/scientific-isotope-3464/airflow:ci-2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    when:
+      event: push
+      branch: [ master, release-* ]
